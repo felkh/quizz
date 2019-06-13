@@ -10,6 +10,51 @@
   </head>
 
   <body>
+    <header class="row">
+      <div class="col-3">
+        <div class="circle">
+           <br />
+          Welcome
+          <br />
+          to our
+          <br />
+          Book Club
+        </div>
+      </div>
+      <div class="col-5 links">
+         <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+          Tell us your favourite book!
+        </button>
+      </div>
+    </header>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Contribute Your Book</h4>
+          </div>
+          <div class="modal-body">
+            <%= simple_form_for Book.new do |f| %>
+              <%= f.input :title %>
+              <%= f.input :author %>
+              <br />
+              <%= f.submit 'Create', class: 'btn btn-danger' %>
+            <% end %>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
     <%= yield %>
   </body>
 </html>
